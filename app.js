@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contentRouter = require('./routes/content');
+var myCourses = require('./routes/myCourses');
+
 var config = require('./config');
 var passport = require('passport');
 const mongoose = require('mongoose');
@@ -31,7 +33,10 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
+//app.engine('jade', require('jade').__express);
+//app.engine('html', require('ejs').renderFile);
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -71,6 +76,9 @@ function auth (req, res, next) {
 app.use(auth);
 
 app.use('/content', contentRouter);
+app.use('/cart/myCourses', myCourses);
+//app.use('/courses/', myCourses);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
