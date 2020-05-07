@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 
 var CourseSchema = new mongoose.Schema({
-  name: String,
-  description: String,
   instructor: String,
+  title: String,
+  description: String,
+  price: Number,
+  image: String,
   updated_at: { type: Date, default: Date.now },
 });
 

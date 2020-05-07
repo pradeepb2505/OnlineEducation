@@ -9,10 +9,7 @@ var usersRouter = require('./routes/users');
 var contentRouter = require('./routes/content');
 var mainRouter = require("./routes/mainpage");
 var accountRouter = require("./routes/account")
-<<<<<<< HEAD
-=======
 var courses = require('./routes/courses');
->>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 
 var config = require('./config');
 var passport = require('passport');

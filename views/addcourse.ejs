@@ -22,7 +22,14 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-
+    <style>
+      .center {
+      margin: auto;
+      width: 50%;
+      border: 3px solid green;
+      padding: 10px;
+      }
+  </style>
 
     <!-- <script scr="/javascripts/bootstrap.min.js"></script> -->
 </head>
@@ -58,31 +65,65 @@
 
     <br>
     <br>
-    <h1>User</h1>
-    <p><%= products %></p>
-    <% products.forEach(function(product){ %>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="thumbnail">
-              <div class="caption">
-                <h3><%= product.title %></h3>
-                  <p class="description"><%= product.description %></p>
-                  <div class="clearfix">
-                  <div class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> <%= product.price %> $</div>
-                    <a href="/main/add/<%= product.id %>" class="btn btn-default pull-right" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
-                  </div>
-              </div>
-            </div>
+    <h1>Add a new course</h1>
+    <div class="center">
+    <form class="form-horizontal" method="POST" action="/main/addcourse">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <legend>Add new</legend>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Title</label>  
+          <div class="col-md-4">
+          <input id="title" name="title" type="text" placeholder="placeholder" class="form-control input-md">
           </div>
         </div>
-      <% }); %>
-
-
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Description</label>  
+          <div class="col-md-4">
+          <input id="description" name="description" type="text" placeholder="placeholder" class="form-control input-md">
+          </div>
         </div>
-    </footer>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Price</label>  
+          <div class="col-md-4">
+          <input id="price" name="price" type="text" placeholder="placeholder" class="form-control input-md">
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Instructor</label>  
+          <div class="col-md-4">
+          <input id="instructor" name="instructor" type="text" placeholder="placeholder" class="form-control input-md">
+          
+          </div>
+        </div>
+        
+        <!-- File Button --> 
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="filebutton">Upload Videos</label>
+          <div class="col-md-4">
+            <input id="filebutton" name="filebutton" class="input-file" type="file">
+          </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="form-group">
+          <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Add Course</button>
+          </div>
+        </div>
+        
+        </fieldset>
+        </form>
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

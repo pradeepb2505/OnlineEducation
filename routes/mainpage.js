@@ -3,7 +3,7 @@ var router = express.Router();
 
 var monk = require('monk');
 var db = monk('mongodb+srv://admin:KtTTfwsYnUbD7uK@cluster0-qqyyu.mongodb.net/courses?retryWrites=true&w=majority');
-
+var Course = require("../models/course");
 var fs = require('fs');
 
 var Cart = require('../models/cart');
@@ -15,7 +15,9 @@ router.get('/', function(req, res, next) {
     console.log(req.user);
     console.log("admin", req.user["admin"]);
     if(req.user["admin"]==true){
-        res.render('adminmain', { title: 'WhiteBoard' });
+        res.render('adminmain', { title: 'WhiteBoard',
+        title: 'NodeJS Shopping Cart',
+		    products: products });
     }
     else{
     	console.log(products)
@@ -27,6 +29,33 @@ router.get('/', function(req, res, next) {
 		  );
     }
 });
+
+router.get('/mycourses', function (req, res, next) {
+  res.render('mycourses',{title:"WhiteBoard"});
+});
+
+router.get('/addcourse', function (req, res, next) {
+  res.render('addcourse',{title:"WhiteBoard"});
+});
+
+router.post('/addcourse', function (req, res, next) {
+  var course = new Course(req.body);
+  // res.json(req.body);
+
+  course.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.render("../views/courses/create");
+    } else {
+      console.log("Successfully created an courses.");
+      res.redirect('/main');
+    }
+  });
+  
+});
+
+
+
 router.get('/add/:id', function(req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});

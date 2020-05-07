@@ -17,14 +17,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <style>
-        .center {
-        margin: auto;
-        width: 50%;
-        border: 3px solid green;
-        padding: 10px;
-        }
-    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+
     <!-- <script scr="/javascripts/bootstrap.min.js"></script> -->
 </head>
 
@@ -39,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/account">Account</a>
@@ -52,65 +51,24 @@
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form> -->
-                <button class="btn btn-outline-success my-2 my-sm-0"
-                    onclick="location.href = '/users/logout';">Logout</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="location.href = '/users/logout';" >Logout</button>
             </div>
         </nav>
     </header>
 
     <br>
     <br>
-    <h1>Admin</h1>
-    <style>
-        .row>div[class*='col-'] {
-            display: flex;
-            flex: 1 0 auto;
-        }
-    </style>
-    <div class="container-fluid">
-        <div class="card-deck">
-
-            <% products.forEach(function(product){ %>
-            <div class="card mb-4" style="min-width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><%= product.title %></h5>
-                    <p class="card-text"><%= product.description %></p>
-                    <p class="card-text">
-                        <div class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> <%= product.price %> $
-                        </div>
-                    </p>
-                    <a href="/edit/add/<%= product.id %>" class="btn btn-primary">Edit</a>
-                </div>
-            </div>
-            <div class="card mb-3" style="min-width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><%= product.title %></h5>
-                    <p class="card-text"><%= product.description %></p>
-                    <p class="card-text">
-                        <div class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> <%= product.price %> $
-                        </div>
-                    </p>
-                    <a href="/edit/add/<%= product.id %>" class="btn btn-primary">Edit</a>
-                </div>
-            </div>
-            <% }); %>
-        </div>
-    </div>
+    <h1>User</h1>
 
 
 
-
-    <footer class="footer">
-        <div class="container">
-
-        </div>
-    </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
 
