@@ -1,0 +1,65 @@
+<%- include('partials/navbar') %>
+
+    <br>
+    <br>
+    <h1>Add a new course</h1>
+    <div class="center">
+    <form class="form-horizontal" method="POST" action="/main/addcourse">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <legend>Add new</legend>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Title</label>  
+          <div class="col-md-4">
+          <input id="title" name="title" type="text" placeholder="placeholder" class="form-control input-md">
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Description</label>  
+          <div class="col-md-4">
+          <input id="description" name="description" type="text" placeholder="placeholder" class="form-control input-md">
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Price</label>  
+          <div class="col-md-4">
+          <input id="price" name="price" type="text" placeholder="placeholder" class="form-control input-md">
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Instructor</label>  
+          <div class="col-md-4">
+          <input id="instructor" name="instructor" type="text" placeholder="placeholder" class="form-control input-md">
+          
+          </div>
+        </div>
+        
+        <!-- File Button --> 
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="filebutton">Upload Videos</label>
+          <div class="col-md-4">
+            <input id="filebutton" name="filebutton" class="input-file" type="file">
+          </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="form-group">
+          <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Add Course</button>
+          </div>
+        </div>
+        
+        </fieldset>
+        </form>
+        </div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,17 @@
+
+<div class="dropdown pull-right">
+    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+        <% if (session.cart) {%>
+        <span>(<%= session.cart.totalItems %>)</span>
+        <% } %>
+    </a>
+    <% if (session.cart) {%>
+    <div class="dropdown-menu">
+        <div class="cart">
+                    <a href="/main/cart/" class="btn btn-success">Procceed</a>
+        </div>
+    </div>
+    <% }%>
+</div>
+

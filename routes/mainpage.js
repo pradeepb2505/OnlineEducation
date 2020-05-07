@@ -7,6 +7,7 @@ var db = monk('mongodb+srv://admin:KtTTfwsYnUbD7uK@cluster0-qqyyu.mongodb.net/co
 var fs = require('fs');
 
 var Cart = require('../models/cart');
+var Course = require('../models/course');
 var products = JSON.parse(fs.readFileSync('./data/products.json', 'utf8'));
 
 
@@ -15,18 +16,46 @@ router.get('/', function(req, res, next) {
     console.log(req.user);
     console.log("admin", req.user["admin"]);
     if(req.user["admin"]==true){
-        res.render('adminmain', { title: 'WhiteBoard' });
+        res.render('adminmain', { title: 'WhiteBoard',
+        title: 'NodeJS Shopping Cart',
+        products: products });
     }
     else{
-    	console.log(products)
-		  res.render('usermain', 
-		  { 
-		    title: 'NodeJS Shopping Cart',
-		    products: products
-		  }
-		  );
+      console.log(products)
+      res.render('usermain', 
+      { 
+        title: 'NodeJS Shopping Cart',
+        products: products,
+        session:req.session
+      }
+      );
     }
 });
+
+router.get('/mycourses', function (req, res, next) {
+  res.render('mycourses',{title:"WhiteBoard"});
+});
+
+router.get('/addcourse', function (req, res, next) {
+  res.render('addcourse',{title:"WhiteBoard"});
+});
+
+router.post('/addcourse', function (req, res, next) {
+  var course = new Course(req.body);
+  // res.json(req.body);
+
+  course.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.render("../views/courses/create");
+    } else {
+      console.log("Successfully created an courses.");
+      res.redirect('/main');
+    }
+  });
+  
+});
+
 router.get('/add/:id', function(req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -74,6 +103,7 @@ router.get('/checkout', function(req, res){
   }
   var cart = new Cart(req.session.cart);
   collection.insert({
+    username: req.user.username,
     title: 'NodeJS Shopping Cart',
     products: cart.getItems(),
     totalPrice: cart.totalPrice
@@ -82,5 +112,8 @@ router.get('/checkout', function(req, res){
     res.json(myCourses);
   });
 });
+
+
+
 
 module.exports = router;
