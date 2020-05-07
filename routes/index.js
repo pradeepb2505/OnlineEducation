@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< HEAD
 var User = require('../models/user');
+=======
+
+var User = require('../models/user');
+
+
+>>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', {
@@ -8,6 +15,25 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.post('/checkuser', function (req, res, next) {
+  // res.send('respond with a resource');
+  res.setHeader('Content-Type', 'application/json');
+  console.log(req.body.username);
+  User.findOne({
+    username: req.body.username
+  }, function (err, user) {
+    if (user) {
+      res.json({
+        found: true
+      })
+    } else {
+      console.log(user);
+      res.json({
+        found: false
+      });
+    }
+  });
+});
 router.post('/checkuser', function (req, res, next) {
   // res.send('respond with a resource');
   res.setHeader('Content-Type', 'application/json');

@@ -9,6 +9,10 @@ var usersRouter = require('./routes/users');
 var contentRouter = require('./routes/content');
 var mainRouter = require("./routes/mainpage");
 var accountRouter = require("./routes/account")
+<<<<<<< HEAD
+=======
+var courses = require('./routes/courses');
+>>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 
 var config = require('./config');
 var passport = require('passport');
@@ -76,6 +80,9 @@ app.use(auth);
 app.use('/main', mainRouter);
 app.use('/content', contentRouter);
 app.use('/account', accountRouter);
+
+// app.use('/courses', courses);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

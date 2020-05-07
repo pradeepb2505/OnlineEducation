@@ -18,6 +18,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
+<<<<<<< HEAD
+=======
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+
+>>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
     <!-- <script scr="/javascripts/bootstrap.min.js"></script> -->
 </head>
 
@@ -53,7 +62,27 @@
     <br>
     <br>
     <h1>User</h1>
+<<<<<<< HEAD
 
+=======
+    <p><%= products %></p>
+    <% products.forEach(function(product){ %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3><%= product.title %></h3>
+                  <p class="description"><%= product.description %></p>
+                  <div class="clearfix">
+                  <div class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> <%= product.price %> $</div>
+                    <a href="/main/add/<%= product.id %>" class="btn btn-default pull-right" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+>>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 
 
     <footer class="footer">
@@ -66,6 +95,12 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
 
+<<<<<<< HEAD
+=======
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+>>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 </body>
 
 </html>
