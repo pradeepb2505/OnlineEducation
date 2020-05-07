@@ -10,13 +10,13 @@ app.config(['$routeProvider', function($routeProvider){
 			templateUrl: 'partials/courseForm.html',
 			controller: 'AddCourseCtrl'
 		})
-		.when('/add-course', {
-			templateUrl: 'partials/courseForm.html',
-			//controller: 'AddCourseCtrl'
-		})
-		.otherwise({
-			redirectTo: '/'
-		});
+		// .when('/add-course', {
+		// 	templateUrl: 'partials/courseForm.html',
+		// 	//controller: 'AddCourseCtrl'
+		// })
+		// .otherwise({
+		// 	redirectTo: '/'
+		// });
 }]);
 app.controller('HomeCtrl', ['$scope', '$resource',
 	function($scope, $resource){
@@ -27,6 +27,7 @@ app.controller('HomeCtrl', ['$scope', '$resource',
 	}]);
 app.controller('AddCourseCtrl', ['$scope', '$resource', '$location',
 	function($scope, $resource, $location){
+		console.log("addcourse")
 		$scope.save = function(){
 			var MyCourses = $resource('/cart/myCourses');
 			MyCourses.save($scope.myCourses, function(){
