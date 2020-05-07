@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Getting started with Node.JS",
+    "description": "In this tutorial, I’ll teach you the basics of Node.js. Not only will you learn what Node is and what you can do with it, but you’ll see Node in action.",
+    "price": 25
+  },
+  {
+    "id": 2,
+    "title": "Hands on JAVA EE",
+    "description": "In this course we are going to talk about the basics of professional software engineering such as how to seperate the code into multiple modules.",
+    "price": 30
+  },
+  {
+    "id": 3,
+    "title": "Querying an SQL DB",
+    "description": "Get ready to acquire some seriously marketable programming skills! You can't consider yourself a full stack developer until you can code in SQL.",
+    "price": 15
+  },
+  {
+    "id": 4,
+    "title": "MongoDB server administration",
+    "description": "MongoDB is one of the most important NoSQL databases you can work with these days. It's extremely popular and MongoDB developers are in high demand.",
+    "price": 45
+  },
+  {
+    "id": 5,
+    "title": "Deploying on AWS",
+    "description": "Our course material, like the AWS certification exams, are continually evolving. This course covers all you need to know to pass the the new 2020 exam",
+    "price": 15
+  }
+]

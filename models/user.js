@@ -18,7 +18,9 @@ var User = new Schema({
     admin:   {
         type: Boolean,
         default: false
-    }
+    },
+    age: Number,
+    gender: String
 });
 
 User.plugin(passportLocalMongoose);
