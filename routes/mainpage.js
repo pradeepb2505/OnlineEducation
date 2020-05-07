@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-<<<<<<< HEAD
-=======
 var monk = require('monk');
 var db = monk('mongodb+srv://admin:KtTTfwsYnUbD7uK@cluster0-qqyyu.mongodb.net/courses?retryWrites=true&w=majority');
 
@@ -12,7 +10,6 @@ var Cart = require('../models/cart');
 var products = JSON.parse(fs.readFileSync('./data/products.json', 'utf8'));
 
 
->>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log(req.user);
@@ -21,11 +18,6 @@ router.get('/', function(req, res, next) {
         res.render('adminmain', { title: 'WhiteBoard' });
     }
     else{
-<<<<<<< HEAD
-        res.render('usermain', { title: 'WhiteBoard' });
-    }
-});
-=======
     	console.log(products)
 		  res.render('usermain', 
 		  { 
@@ -90,6 +82,5 @@ router.get('/checkout', function(req, res){
     res.json(myCourses);
   });
 });
->>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 
 module.exports = router;

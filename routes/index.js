@@ -1,13 +1,9 @@
 var express = require('express');
 var router = express.Router();
-<<<<<<< HEAD
-var User = require('../models/user');
-=======
 
 var User = require('../models/user');
 
 
->>>>>>> 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', {
