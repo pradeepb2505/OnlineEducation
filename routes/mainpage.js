@@ -18,11 +18,7 @@ router.get('/', function(req, res, next) {
     if(req.user["admin"]==true){
         res.render('adminmain', { title: 'WhiteBoard',
         title: 'NodeJS Shopping Cart',
-<<<<<<< HEAD
-		    products: products });
-=======
         products: products });
->>>>>>> 99232a1734277a54a2add8611b0a8cf7d39021c5
     }
     else{
       console.log(products)
@@ -60,11 +56,6 @@ router.post('/addcourse', function (req, res, next) {
   
 });
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 99232a1734277a54a2add8611b0a8cf7d39021c5
 router.get('/add/:id', function(req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});

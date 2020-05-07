@@ -77,10 +77,6 @@ app.use('/main', mainRouter);
 app.use('/content', contentRouter);
 app.use('/account', accountRouter);
 
-<<<<<<< HEAD
-// app.use('/courses', courses);
-=======
->>>>>>> 99232a1734277a54a2add8611b0a8cf7d39021c5
 
 
 // catch 404 and forward to error handler
