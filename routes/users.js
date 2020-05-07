@@ -11,6 +11,8 @@ router.get('/', function (req, res, next) {
   console.log(passport.authenticate);
 });
 
+
+
 router.post('/signup', (req, res, next) => {
   console.log(req.body.username);
   User.register(new User({

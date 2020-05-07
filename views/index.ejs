@@ -20,11 +20,39 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script>
 
     </script>
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        .short {
+            font-weight: bold;
+            color: #FF0000;
+            
+        }
+
+        .weak {
+            font-weight: bold;
+            color: orange;
+            
+        }
+
+        .good {
+            font-weight: bold;
+            color: #2D98F3;
+            
+        }
+
+        .strong {
+            font-weight: bold;
+            color: limegreen;
+            
+        }
+    </style>
 </head>
 
 <body>
@@ -77,11 +105,11 @@
                         <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#panel8" role="tab"><i
-                                        class="fas fa-user-plus mr-1"></i>Login</a>
+                                        class="fas fa-user mr-1"></i>Login</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " data-toggle="tab" href="#panel7" role="tab"><i
-                                        class="fas fa-user mr-1"></i>Register</a>
+                                        class="fas fa-user-plus mr-1"></i>Register</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -109,6 +137,7 @@
                                         <label for="username">User Name</label>
                                         <input type="text" class="form-control" id="username1"
                                             placeholder="Enter username" name="username">
+                                        <span class="form-text" id="usermessage" style="color: red;"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
@@ -121,6 +150,7 @@
                                             name="password" id="up">
                                         <small class="form-text text-muted">We won't share your password with
                                             anyone:)</small>
+                                        <span id="result"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Confirm Password</label>
@@ -130,6 +160,54 @@
                                     <button type="submit" class="btn btn-primary">Create Account</button>
                                 </form>
                             </div>
+                            <script>
+                                $("#username1").change(function () {
+                                    $.post("/checkuser", {
+                                        username: $("#username1").val()
+                                    }, function (data, status) {
+                                        if (data.found == true) {
+                                            $("#usermessage").text("User name not available");
+                                        } else {
+                                            console.log("User name available");
+                                            $("#usermessage").text("");
+                                        }
+                                    });
+                                });
+                                $('#up').keyup(function () {
+                                    $('#result').html(checkStrength($('#up').val()))
+                                })
+
+                                function checkStrength(password) {
+                                    var strength = 0
+                                    if (password.length < 6) {
+                                        $('#result').removeClass()
+                                        $('#result').addClass('short')
+                                        return 'Too short'
+                                    }
+                                    if (password.length > 7) strength += 1
+                                    if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1
+                                    if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) strength += 1
+
+                                    if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1
+                                    
+                                    if (password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,%,&,@,#,$,^,*,?,_,~])/))
+                                        strength += 1
+                                  
+                                    if (strength < 2) {
+                                        $('#result').removeClass()
+                                        $('#result').addClass('weak')
+                                        return 'Weak'
+                                    } else if (strength == 2) {
+                                        $('#result').removeClass()
+                                        $('#result').addClass('good')
+                                        return 'Good'
+                                    } else {
+                                        $('#result').removeClass()
+                                        $('#result').addClass('strong')
+                                        return 'Strong'
+                                    }
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -137,20 +215,21 @@
         </div>
     </div>
     <section id="banner">
-        <div class="inner", style="background-image: images/OE1.jpg">
+        <div class="inner" , style="background-image: images/OE1.jpg">
             <p>A nxtGen learning platform created by today>
-            <h1>Welcome to virtual WhiteBoard</h1>
-            <p>A nxtGen learning platform created by today's mind for tomrrow's future<br />
-            </p>
+                <h1>Welcome to virtual WhiteBoard</h1>
+                <p>A nxtGen learning platform created by today's mind for tomrrow's future<br />
+                </p>
         </div>
 
     </section>
 
     <section class="wrapper" id="bright">
-        <div class="inner" >
+        <div class="inner">
             <header class="special">
                 <h2>Bright Minds </h2>
-                <p>Excited for the future of education. This WhiteBoard extends the horizons of traditional learning </p>
+                <p>Excited for the future of education. This WhiteBoard extends the horizons of traditional learning
+                </p>
             </header>
             <div class="highlights">
                 <section>
@@ -159,7 +238,8 @@
                             <a href="#" class="icon fa-vcard-o"><span class="label">Icon</span></a>
                             <h3>Introduction to web programming</h3>
                         </header>
-                        <p>Just a click away. Ever wondered how does one click away works. Well take our web programming course and find out more.</p>
+                        <p>Just a click away. Ever wondered how does one click away works. Well take our web programming
+                            course and find out more.</p>
                     </div>
                 </section>
                 <section>
@@ -168,7 +248,8 @@
                             <a href="#" class="icon fa-files-o"><span class="label">Icon</span></a>
                             <h3>Introduction to sciences</h3>
                         </header>
-                        <p>Physics, Chemistry, Biology. The course offers fundamental concepts from all basic sciences. In a need for quick refresher. You are at right place.</p>
+                        <p>Physics, Chemistry, Biology. The course offers fundamental concepts from all basic sciences.
+                            In a need for quick refresher. You are at right place.</p>
                     </div>
                 </section>
                 <section>
@@ -177,7 +258,8 @@
                             <a href="#" class="icon fa-floppy-o"><span class="label">Icon</span></a>
                             <h3>ABC of computer</h3>
                         </header>
-                        <p>Invention of the century. Enjoy the ride of computer from the size of room to the palm of your hand. We will tell you the very basic at root of it.</p>
+                        <p>Invention of the century. Enjoy the ride of computer from the size of room to the palm of
+                            your hand. We will tell you the very basic at root of it.</p>
                     </div>
                 </section>
                 <section>
@@ -186,7 +268,8 @@
                             <a href="#" class="icon fa-line-chart"><span class="label">Icon</span></a>
                             <h3>Learn Data Analytics</h3>
                         </header>
-                        <p>Basis of any case. Expert or novice everyone starts here. Learn ways to get your analysis right. Let data unwind the the story.</p>
+                        <p>Basis of any case. Expert or novice everyone starts here. Learn ways to get your analysis
+                            right. Let data unwind the the story.</p>
                     </div>
                 </section>
                 <section>
@@ -195,7 +278,8 @@
                             <a href="#" class="icon fa-paper-plane-o"><span class="label">Icon</span></a>
                             <h3>Learn Arduino</h3>
                         </header>
-                        <p>Arduino a.k.a. soul of any DIY projects. Learn to make your own line following bot or hoem automation. Choices are endless.</p>
+                        <p>Arduino a.k.a. soul of any DIY projects. Learn to make your own line following bot or hoem
+                            automation. Choices are endless.</p>
                     </div>
                 </section>
                 <section>
@@ -204,7 +288,8 @@
                             <a href="#" class="icon fa-qrcode"><span class="label">Icon</span></a>
                             <h3>Learn App Development</h3>
                         </header>
-                        <p>Interested in building android or iOS application. Have a cool idea of next popular game or be it utilities app to make life much simpler.</p>
+                        <p>Interested in building android or iOS application. Have a cool idea of next popular game or
+                            be it utilities app to make life much simpler.</p>
                     </div>
                 </section>
             </div>
@@ -213,30 +298,33 @@
 
     <!-- CTA -->
     <div id="vision">
-    <section id="cta" class="wrapper" >
-        <div class="inner", style="color:black;" >
-            <h1 style="color:aqua;"><b style="color:black">Vision & Mission</b></h1>
-            <p ><b style="color:black; font-size: large">We are commited to bring the best of the world at your screen. Our mission for the project include education for all.
-                Everyone should have access to all the learnings in the world that intrestes one.
-                Our vision for the future is to create equal opportunity for everyone at their own pace.
-                By bringing the best of class education from basics to the specialization.
-                To the one who wants to learn sky is the limit</b></p>
-        </div>
+        <section id="cta" class="wrapper">
+            <div class="inner" , style="color:black;">
+                <h1 style="color:aqua;"><b style="color:black">Vision & Mission</b></h1>
+                <p><b style="color:black; font-size: large">We are commited to bring the best of the world at your
+                        screen. Our mission for the project include education for all.
+                        Everyone should have access to all the learnings in the world that intrestes one.
+                        Our vision for the future is to create equal opportunity for everyone at their own pace.
+                        By bringing the best of class education from basics to the specialization.
+                        To the one who wants to learn sky is the limit</b></p>
+            </div>
         </section>
-        </div>
+    </div>
 
     <!-- Testimonials -->
     <section class="wrapper">
         <div class="inner" id="testimonials">
             <header class="special">
                 <h2>Testimonials</h2>
-                <p>We are most thankful for our team consistantly working on bringing the best of class content and topic for the education</p>
+                <p>We are most thankful for our team consistantly working on bringing the best of class content and
+                    topic for the education</p>
             </header>
             <div class="testimonials">
                 <section>
                     <div class="content">
                         <blockquote>
-                            <p>I love the content on the website. It is just what I need to understand my science assignmnets.</p>
+                            <p>I love the content on the website. It is just what I need to understand my science
+                                assignmnets.</p>
                         </blockquote>
                         <div class="author">
                             <div class="image">
@@ -249,7 +337,8 @@
                 <section>
                     <div class="content">
                         <blockquote>
-                            <p>I am regular viewr of the refresher courses. It helps me to keep upto date with current trends as well as basics</p>
+                            <p>I am regular viewr of the refresher courses. It helps me to keep upto date with current
+                                trends as well as basics</p>
                         </blockquote>
                         <div class="author">
                             <div class="image">
@@ -262,7 +351,8 @@
                 <section>
                     <div class="content">
                         <blockquote>
-                            <p>Being a hobbiest has it's own perk. Thanks to whiteboard. Simple, precisise and elaborative when you dig into the details of it.</p>
+                            <p>Being a hobbiest has it's own perk. Thanks to whiteboard. Simple, precisise and
+                                elaborative when you dig into the details of it.</p>
                         </blockquote>
                         <div class="author">
                             <div class="image">
@@ -283,9 +373,10 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    </script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
