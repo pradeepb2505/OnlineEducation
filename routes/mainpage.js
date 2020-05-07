@@ -7,6 +7,7 @@ var Course = require("../models/course");
 var fs = require('fs');
 
 var Cart = require('../models/cart');
+var Course = require('../models/course');
 var products = JSON.parse(fs.readFileSync('./data/products.json', 'utf8'));
 
 
@@ -17,16 +18,21 @@ router.get('/', function(req, res, next) {
     if(req.user["admin"]==true){
         res.render('adminmain', { title: 'WhiteBoard',
         title: 'NodeJS Shopping Cart',
+<<<<<<< HEAD
 		    products: products });
+=======
+        products: products });
+>>>>>>> 99232a1734277a54a2add8611b0a8cf7d39021c5
     }
     else{
-    	console.log(products)
-		  res.render('usermain', 
-		  { 
-		    title: 'NodeJS Shopping Cart',
-		    products: products
-		  }
-		  );
+      console.log(products)
+      res.render('usermain', 
+      { 
+        title: 'NodeJS Shopping Cart',
+        products: products,
+        session:req.session
+      }
+      );
     }
 });
 
@@ -54,8 +60,11 @@ router.post('/addcourse', function (req, res, next) {
   
 });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 99232a1734277a54a2add8611b0a8cf7d39021c5
 router.get('/add/:id', function(req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -103,6 +112,7 @@ router.get('/checkout', function(req, res){
   }
   var cart = new Cart(req.session.cart);
   collection.insert({
+    username: req.user.username,
     title: 'NodeJS Shopping Cart',
     products: cart.getItems(),
     totalPrice: cart.totalPrice
@@ -111,5 +121,8 @@ router.get('/checkout', function(req, res){
     res.json(myCourses);
   });
 });
+
+
+
 
 module.exports = router;

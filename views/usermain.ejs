@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,10 +57,17 @@
         </nav>
     </header>
 
+=======
+<%- include('partials/navbar') %>
     <br>
     <br>
-    <h1>User</h1>
-    <p><%= products %></p>
+    <h1>Shop for Courses</h1>
+    <br>
+    <br>
+    <%- include('partials/header') %>
+>>>>>>> 99232a1734277a54a2add8611b0a8cf7d39021c5
+    <br>
+    <br>
     <% products.forEach(function(product){ %>
         <div class="row">
           <div class="col-md-12">
@@ -76,21 +84,4 @@
           </div>
         </div>
       <% }); %>
-
-
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+<%- include('partials/footer') %>

@@ -9,4 +9,4 @@ var CourseSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Course', CourseSchema);
+module.exports = mongoose.model('course', CourseSchema);
