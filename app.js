@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contentRouter = require('./routes/content');
+var mainRouter = require("./routes/mainpage");
+var accountRouter = require("./routes/account")
+
 var config = require('./config');
 var passport = require('passport');
 const mongoose = require('mongoose');
@@ -70,7 +73,9 @@ function auth (req, res, next) {
 
 app.use(auth);
 
+app.use('/main', mainRouter);
 app.use('/content', contentRouter);
+app.use('/account', accountRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="./stylesheets/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -17,8 +17,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+    <script>
 
-    <!-- <script scr="/javascripts/bootstrap.min.js"></script> -->
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
 <body>
@@ -35,10 +41,13 @@
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#bright">Bright Minds</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link " href="#vision">Vision & Mision</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#testimonials">Testimonials</a>
                     </li>
                 </ul>
                 <!-- <form class="form-inline mt-2 mt-md-0">
@@ -67,10 +76,12 @@
                     <div class="modal-c-tabs">
                         <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>Login</a>
+                                <a class="nav-link active" data-toggle="tab" href="#panel8" role="tab"><i
+                                        class="fas fa-user-plus mr-1"></i>Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>Register</a>
+                                <a class="nav-link " data-toggle="tab" href="#panel7" role="tab"><i
+                                        class="fas fa-user mr-1"></i>Register</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -92,7 +103,8 @@
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="panel7" role="tabpanel">
-                                <form method="POST" action="/users/signup">
+                                <form action="/users/signup" method="post"
+                                    oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
                                     <div class="form-group">
                                         <label for="username">User Name</label>
                                         <input type="text" class="form-control" id="username1"
@@ -100,17 +112,20 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                            name="email">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="password1"
-                                            placeholder="Password" name="password">
-                                        <small class="form-text text-muted">We won't share your password with anyone:)</small>
+                                        <input type="password" class="form-control" placeholder="Password"
+                                            name="password" id="up">
+                                        <small class="form-text text-muted">We won't share your password with
+                                            anyone:)</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Confirm Password</label>
-                                        <input type="password" class="form-control" id="confirmpassword" placeholder="Password">
+                                        <input type="password" class="form-control" name="up2" id="up2"
+                                            placeholder="Password">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Create Account</button>
                                 </form>
@@ -121,42 +136,146 @@
             </div>
         </div>
     </div>
+    <section id="banner">
+        <div class="inner", style="background-image: images/OE1.jpg">
+            <p>A nxtGen learning platform created by today>
+            <h1>Welcome to virtual WhiteBoard</h1>
+            <p>A nxtGen learning platform created by today's mind for tomrrow's future<br />
+            </p>
+        </div>
 
-    <!-- <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    </section>
+
+    <section class="wrapper" id="bright">
+        <div class="inner" >
+            <header class="special">
+                <h2>Bright Minds </h2>
+                <p>Excited for the future of education. This WhiteBoard extends the horizons of traditional learning </p>
+            </header>
+            <div class="highlights">
+                <section>
+                    <div class="content">
+                        <header>
+                            <a href="#" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+                            <h3>Introduction to web programming</h3>
+                        </header>
+                        <p>Just a click away. Ever wondered how does one click away works. Well take our web programming course and find out more.</p>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a href="#" class="icon fa-files-o"><span class="label">Icon</span></a>
+                            <h3>Introduction to sciences</h3>
+                        </header>
+                        <p>Physics, Chemistry, Biology. The course offers fundamental concepts from all basic sciences. In a need for quick refresher. You are at right place.</p>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a href="#" class="icon fa-floppy-o"><span class="label">Icon</span></a>
+                            <h3>ABC of computer</h3>
+                        </header>
+                        <p>Invention of the century. Enjoy the ride of computer from the size of room to the palm of your hand. We will tell you the very basic at root of it.</p>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a href="#" class="icon fa-line-chart"><span class="label">Icon</span></a>
+                            <h3>Learn Data Analytics</h3>
+                        </header>
+                        <p>Basis of any case. Expert or novice everyone starts here. Learn ways to get your analysis right. Let data unwind the the story.</p>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a href="#" class="icon fa-paper-plane-o"><span class="label">Icon</span></a>
+                            <h3>Learn Arduino</h3>
+                        </header>
+                        <p>Arduino a.k.a. soul of any DIY projects. Learn to make your own line following bot or hoem automation. Choices are endless.</p>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a href="#" class="icon fa-qrcode"><span class="label">Icon</span></a>
+                            <h3>Learn App Development</h3>
+                        </header>
+                        <p>Interested in building android or iOS application. Have a cool idea of next popular game or be it utilities app to make life much simpler.</p>
+                    </div>
+                </section>
+            </div>
         </div>
-        <div class="modal-body mx-3">
-          <div class="md-form mb-5">
-            <i class="fas fa-envelope prefix grey-text"></i>
-            <input type="email" id="defaultForm-email" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
-          </div>
-  
-          <div class="md-form mb-4">
-            <i class="fas fa-lock prefix grey-text"></i>
-            <input type="password" id="defaultForm-pass" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-          </div>
-  
+    </section>
+
+    <!-- CTA -->
+    <div id="vision">
+    <section id="cta" class="wrapper" >
+        <div class="inner", style="color:black;" >
+            <h1 style="color:aqua;"><b style="color:black">Vision & Mission</b></h1>
+            <p ><b style="color:black; font-size: large">We are commited to bring the best of the world at your screen. Our mission for the project include education for all.
+                Everyone should have access to all the learnings in the world that intrestes one.
+                Our vision for the future is to create equal opportunity for everyone at their own pace.
+                By bringing the best of class education from basics to the specialization.
+                To the one who wants to learn sky is the limit</b></p>
         </div>
-        <div class="modal-footer d-flex justify-content-center">
-          <button class="btn btn-default">Login</button>
+        </section>
         </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="text-center">
-    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
-      Modal Login Form</a>
-  </div> -->
+
+    <!-- Testimonials -->
+    <section class="wrapper">
+        <div class="inner" id="testimonials">
+            <header class="special">
+                <h2>Testimonials</h2>
+                <p>We are most thankful for our team consistantly working on bringing the best of class content and topic for the education</p>
+            </header>
+            <div class="testimonials">
+                <section>
+                    <div class="content">
+                        <blockquote>
+                            <p>I love the content on the website. It is just what I need to understand my science assignmnets.</p>
+                        </blockquote>
+                        <div class="author">
+                            <div class="image">
+                                <img src="images/pic01.jpg" alt="" />
+                            </div>
+                            <p class="credit">- <strong>Jane Doe</strong> <span>High school student</span></p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <blockquote>
+                            <p>I am regular viewr of the refresher courses. It helps me to keep upto date with current trends as well as basics</p>
+                        </blockquote>
+                        <div class="author">
+                            <div class="image">
+                                <img src="images/pic02.png" alt="" />
+                            </div>
+                            <p class="credit">- <strong>John Doe</strong> <span>CEO - ABC Inc.</span></p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <blockquote>
+                            <p>Being a hobbiest has it's own perk. Thanks to whiteboard. Simple, precisise and elaborative when you dig into the details of it.</p>
+                        </blockquote>
+                        <div class="author">
+                            <div class="image">
+                                <img src="images/pic01.jpg" alt="" />
+                            </div>
+                            <p class="credit">- <strong>Janet Smith</strong> <span>Arduino project creator</span></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
 
     <footer class="footer">
         <div class="container">
@@ -167,6 +286,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 
