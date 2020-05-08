@@ -1,44 +1,60 @@
 <%- include('partials/navbar') %>
 
-    <br>
-    <br>
-    <h1>Admin</h1>
+<br>
+<br>
+<h1>Admin</h1>
+<style>
+    .row>div[class*='col-'] {
+        display: flex;
+        flex: 1 0 auto;
+    }
+</style>
+<div class="container-fluid">
+    <div style="text-align: center">
+        <button type="button" class="btn btn-primary" style="align:'center'"
+            onclick="location.href='/main/addcourse';">Add New Course</button>
+        <br>
+        <h1>Course List</h1>
+        <br>
+    </div>
     <style>
-        .row>div[class*='col-'] {
-            display: flex;
-            flex: 1 0 auto;
+        .card-deck {
+            width: 100%;
+        }
+
+        .card-deck .card {
+            width: initial;
+        }
+
+
+
+        .card {
+            max-width: 17vw;
+            max-height: 20vw;
+            object-fit: cover;
         }
     </style>
-    <div class="container-fluid">
-        <div class="card-deck">
+    <div class="card-deck" style="text-align: center">
+        <% products.forEach(function(product){ %>
 
-            <% products.forEach(function(product){ %>
-            <div class="card mb-4" style="min-width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><%= product.title %></h5>
-                    <p class="card-text"><%= product.description %></p>
-                    <p class="card-text">
-                        <div class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> <%= product.price %> $
-                        </div>
-                    </p>
-                    <a href="/edit/add/<%= product.id %>" class="btn btn-primary">Edit</a>
-                </div>
+        <!-- <img src= alt="" /> -->
+        <div class="card mb-4 " style="min-width: 18rem;">
+            <img class="card-img-top" src="images/<%= product.image %>" alt="<%= product.image %>">
+            <div class="card-body">
+                <h5 class="card-title">Title: <%= product.title %></h5>
+                <p class="card-text">Description: <%= product.description %></p>
+                <p class="card-text">Instructor: <%= product.instructor %></p>
+                <p class="card-text">
+                    <div class="price"><i class="fa fa-tag" aria-hidden="true"></i> <%= product.price %> $
+                    </div>
+                </p>
+                <br>
+                <a href="main/edit/<%= product.id %>" class="btn btn-primary">Edit</a>
+                <a href="main/delete/<%= product.id %>" class="btn btn-danger">Delete</a>
             </div>
-            <div class="card mb-3" style="min-width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><%= product.title %></h5>
-                    <p class="card-text"><%= product.description %></p>
-                    <p class="card-text">
-                        <div class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> <%= product.price %> $
-                        </div>
-                    </p>
-                    <a href="/edit/add/<%= product.id %>" class="btn btn-primary">Edit</a>
-                </div>
-            </div>
-            <% }); %>
         </div>
+        <% }); %>
     </div>
+</div>
 
 <%- include('partials/footer') %>

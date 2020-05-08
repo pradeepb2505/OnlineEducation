@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const path = require("path");
+const multer = require('multer');
+const upload = multer({dest:__dirname+'\\..\\public\\images\\a'});
 
 var monk = require('monk');
 var db = monk('mongodb+srv://admin:KtTTfwsYnUbD7uK@cluster0-qqyyu.mongodb.net/courses?retryWrites=true&w=majority');
@@ -7,18 +10,64 @@ var Course = require("../models/course");
 var fs = require('fs');
 
 var Cart = require('../models/cart');
-var Course = require('../models/course');
+// var Course = require('../models/course');
 var products = JSON.parse(fs.readFileSync('./data/products.json', 'utf8'));
 
+router.post('/addcourse',  upload.single('photo'), function (req, res) {
+  req.body.image = req.file.originalname;
+  console.log(req.file)
+  var course = new Course(req.body);
+  // res.json(req.body);
+  fs.rename(req.file.path, __dirname+'\\..\\public\\images\\'+req.file.originalname, err =>{
+
+  });
+  course.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.render("../views/courses/create");
+    } else {
+      console.log("Successfully created an courses.");
+      res.redirect('/main');
+    }
+  });
+  
+});
+
+router.get('/delete/:id',  upload.single('photo'), function (req, res) {
+  Course.deleteOne({ _id:req.params.id }, function (err) {
+    if (err) return handleError(err);
+    res.redirect("/main");
+  });
+});
+
+router.post('/upload', upload.single('photo'), (req, res) => {
+  console.log(path.__dirname);
+  fs.rename(__dirname+'\\..\\public\\images\\temp.png', __dirname+'\\..\\public\\images\\'+req.file.originalname, err =>{
+
+  });
+  if(req.file) {
+      res.json(req.file);
+  }
+  else throw 'error';
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
     console.log(req.user);
     console.log("admin", req.user["admin"]);
+   
     if(req.user["admin"]==true){
-        res.render('adminmain', { title: 'WhiteBoard',
-        title: 'NodeJS Shopping Cart',
-        products: products });
+      Course.find({}, function(err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render('adminmain', { title: 'WhiteBoard',
+          title: 'NodeJS Shopping Cart',
+          products: result });
+        }
+      });
+       
     }
     else{
       console.log(products)
@@ -40,21 +89,32 @@ router.get('/addcourse', function (req, res, next) {
   res.render('addcourse',{title:"WhiteBoard"});
 });
 
-router.post('/addcourse', function (req, res, next) {
-  var course = new Course(req.body);
-  // res.json(req.body);
-
-  course.save(function(err) {
-    if(err) {
+router.get('/edit/:id', function(req, res, next) {
+  console.log(req.params.id);
+  Course.find({_id:req.params.id}, function(err, result) {
+    if (err) {
       console.log(err);
-      res.render("../views/courses/create");
     } else {
-      console.log("Successfully created an courses.");
-      res.redirect('/main');
+      console.log(result)
+      res.render('editcourse', { title: 'WhiteBoard',
+      title: 'NodeJS Shopping Cart',
+      product: result[0] });
     }
   });
-  
 });
+
+router.post('/updatecourse/:id', function(req, res, next){
+  upd = req.body
+  Course.findOneAndUpdate({_id:req.params.id},upd, function(err, user){
+
+      res.redirect("/main");
+  });
+})
+
+
+
+
+
 
 router.get('/add/:id', function(req, res, next) {
   var productId = req.params.id;
