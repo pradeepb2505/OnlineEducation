@@ -5,7 +5,7 @@ const multer = require('multer');
 const upload = multer({dest:__dirname+'\\..\\public\\images\\a'});
 
 var monk = require('monk');
-var db = monk('mongodb+srv://admin:KtTTfwsYnUbD7uK@cluster0-qqyyu.mongodb.net/courses?retryWrites=true&w=majority');
+var db = monk('mongodb+srv://admin:KtTTfwsYnUbD7uK@cluster0-qqyyu.mongodb.net/whiteBoard?retryWrites=true&w=majority');
 var Course = require("../models/course");
 var fs = require('fs');
 
@@ -70,19 +70,37 @@ router.get('/', function(req, res, next) {
        
     }
     else{
-      console.log(products)
-      res.render('usermain', 
-      { 
-        title: 'NodeJS Shopping Cart',
-        products: products,
-        session:req.session
-      }
-      );
+      //console.log(products)
+
+      var collection = db.get('myCourses');
+      collection.find({username: req.user.username}, function(err,mycourses) {
+            console.log(mycourses);
+            if (err) {
+              console.log(err);
+            } else {
+              res.render('mycourses', { title: 'WhiteBoard',
+              title: 'NodeJS Shopping Cart',
+              mycourses: mycourses,
+              user: req.user
+              });
+            }
+      });
+      
     }
 });
 
-router.get('/mycourses', function (req, res, next) {
-  res.render('mycourses',{title:"WhiteBoard"});
+router.get('/shopcourses', function (req, res, next) {
+  Course.find({}, function(err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result)
+          res.render('usermain', { title: 'WhiteBoard',
+          title: 'NodeJS Shopping Cart',
+          products: result,
+          session:req.session });
+        }
+      });
 });
 
 router.get('/addcourse', function (req, res, next) {
@@ -117,16 +135,24 @@ router.post('/updatecourse/:id', function(req, res, next){
 
 
 router.get('/add/:id', function(req, res, next) {
-  var productId = req.params.id;
-  var cart = new Cart(req.session.cart ? req.session.cart : {});
-  var product = products.filter(function(item) {
-    return item.id == productId;
-  });
-  cart.add(product[0], productId);
-  req.session.cart = cart;
-  res.redirect('/main');
-});
 
+
+  Course.find({}, function(err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+          var productId = req.params.id;
+          var cart = new Cart(req.session.cart ? req.session.cart : {});
+          var product = result.filter(function(item) {
+            return item.id == productId;
+          });
+          cart.add(product[0], productId);
+          req.session.cart = cart;
+          res.redirect('/main/shopcourses');
+        }
+      });
+});
 router.get('/cart', function(req, res, next) {
   console.log("hi")
   if (!req.session.cart) {
@@ -141,7 +167,6 @@ router.get('/cart', function(req, res, next) {
     totalPrice: cart.totalPrice
   });
 });
-
 
 router.get('/remove/:id', function(req, res, next) {
   var productId = req.params.id;
@@ -172,7 +197,6 @@ router.get('/checkout', function(req, res){
     res.json(myCourses);
   });
 });
-
 
 
 

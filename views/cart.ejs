@@ -17,11 +17,8 @@
                         <strong><%= product.item.title %></strong><br/>
                         <em><%= product.item.description %></em>
                     </div>
-                    <div class="col-xs-2 text-right">
-                        <span class="badge"><%=  product.quantity %></span>
-                    </div>
                     <div class="col-xs-3 text-right">
-                        <%= product.price %> $
+                        <%= product.item.price %> $
                     </div>
                     <div class="col-xs-2 text-right">
                         <a href="/main/remove/<%= product.item.id%>" class="btn btn-default"></i> Remove</a>
@@ -35,7 +32,7 @@
         </div>
         <hr>
         <div class="text-right">
-            <a href="/main/checkout" type="button" class="btn btn-default">Checkout</a>
+            <a href="/checkout" type="button" class="btn btn-default">Checkout</a>
         </div>
     <% } %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
