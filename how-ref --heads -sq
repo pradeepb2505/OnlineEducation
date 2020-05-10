@@ -1,0 +1,201 @@
+[33mcommit 3cf1530ee8202a16dcb18886e7f69957a4579ba7[m[33m ([m[1;36mHEAD -> [m[1;32mnew[m[33m, [m[1;31morigin/new[m[33m, [m[1;32mmaster[m[33m)[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Sun May 10 16:07:24 2020 -0500
+
+    "F"
+
+[33mcommit a9f9217d5cb650a1143a0b0fe62596f9cda5ee19[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: ac4e051 c978237
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Sun May 10 15:50:24 2020 -0500
+
+    F1
+
+[33mcommit ac4e05114836d8f539bb8db57875ebbb13bff719[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Sun May 10 15:48:30 2020 -0500
+
+    Final
+
+[33mcommit c23ec50c3dc34540ede44cf884796bb782929d1d[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 19:14:00 2020 -0500
+
+    added courses
+
+[33mcommit c8a55fb041514e43ad24fdfd73c2a5972e2a5a8e[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 16:07:45 2020 -0500
+
+    partials
+
+[33mcommit 07e29dacb3588875b45fdf1cd2712eea0b4c9fe4[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 15:59:42 2020 -0500
+
+    resolve merge 1
+
+[33mcommit 44e949577c4a7999d79d6e61ad6375401e2c5a0a[m
+Merge: 651023d 99232a1
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 15:56:20 2020 -0500
+
+    resolve merge
+
+[33mcommit 99232a1734277a54a2add8611b0a8cf7d39021c5[m
+Author: karan katiyar <karankatiyar@karans-MacBook-Pro.local>
+Date:   Thu May 7 15:48:29 2020 -0500
+
+    fixes partials
+
+[33mcommit 651023d15dfa4be8f369397515a4ebc41f23e445[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 15:14:49 2020 -0500
+
+    add temp
+
+[33mcommit 72c232d6dd068609dbfbd9ec6306d4b9ebe5b0e1[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 13:18:31 2020 -0500
+
+    resolved
+
+[33mcommit 7c96ca8fcef13257919944138210b8ac0dca89a6[m
+Merge: 214e23b 05e501c
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 12:46:09 2020 -0500
+
+    Resolved conflict
+
+[33mcommit 214e23b4f50e0aaff019c850a11d915c719e5125[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 12:28:02 2020 -0500
+
+    merge k
+
+[33mcommit 05e501c8468cc79dbd7cf1bd07ea52de6ca88ba9[m
+Author: karan katiyar <karankatiyar@karans-MacBook-Pro.local>
+Date:   Thu May 7 12:08:43 2020 -0500
+
+    ejs code base
+
+[33mcommit 00a25ef5adca8c3146b0550ecf8e4b9f37e401f8[m[33m ([m[1;32mKaran-Katiyar-master[m[33m)[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu May 7 02:52:52 2020 -0500
+
+    update account
+
+[33mcommit c978237a090dcdcb9b2e0fe88407026c0b3c354e[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Wed May 6 21:13:06 2020 -0500
+
+    added main page
+
+[33mcommit 996954455c4e655638e75c4d45b95dcb1e377a61[m
+Merge: cbc4e0b f3e4891
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Wed May 6 19:35:32 2020 -0500
+
+    Merge pull request #6 from Karan-Katiyar/master
+    
+    test
+
+[33mcommit f3e48915e7ee85c6f53f453afaa1d5e05a206c00[m
+Author: karan katiyar <karankatiyar@karans-MacBook-Pro.local>
+Date:   Wed May 6 19:34:26 2020 -0500
+
+    test
+
+[33mcommit cbc4e0bc01a7c43f63a9c4cd9a4b5cc6b3147da9[m
+Merge: 0a26afb e5403a1
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Wed May 6 19:33:09 2020 -0500
+
+    Merge pull request #5 from Karan-Katiyar/master
+    
+    removed duplicates
+
+[33mcommit e5403a1ae0f339681613dbe3a2b16861ccce5c34[m
+Author: karan katiyar <karankatiyar@karans-MacBook-Pro.local>
+Date:   Wed May 6 19:32:21 2020 -0500
+
+    removed duplicates
+
+[33mcommit 0a26afbdb45bece32f612b4dd72d32267d81ecfb[m
+Merge: fe496b4 ffde58d
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Wed May 6 19:13:19 2020 -0500
+
+    Merge pull request #4 from Karan-Katiyar/master
+    
+    fix for login
+
+[33mcommit ffde58d880999c198be469f34130a5ab3443d7fd[m
+Author: karan katiyar <karankatiyar@karans-MacBook-Pro.local>
+Date:   Wed May 6 17:02:13 2020 -0500
+
+    fix for login
+
+[33mcommit fe496b4f62f8ace8676dc13cf3ff4845ee16c913[m
+Merge: 6abc20e 91f7c9b
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Wed May 6 13:30:35 2020 -0500
+
+    Merge pull request #3 from Karan-Katiyar/master
+    
+    codes merged
+
+[33mcommit 91f7c9bf061f6fe50707a0ac9a5f95af018739de[m
+Author: karan katiyar <karankatiyar@karans-MacBook-Pro.local>
+Date:   Wed May 6 13:25:06 2020 -0500
+
+    codes merged
+
+[33mcommit 6abc20e7c8899aa69ddd66da1d1cbc5a095ae7a3[m
+Merge: 7dc85f6 30c1f08
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu Apr 30 03:05:10 2020 -0500
+
+    Merge pull request #2 from pradeepb2505/revert-1-master
+    
+    Revert "shopping cart"
+
+[33mcommit 30c1f08c48c00627e7d6f339b7031334b61bc98e[m[33m ([m[1;31morigin/revert-1-master[m[33m)[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu Apr 30 03:04:34 2020 -0500
+
+    Revert "shopping cart"
+
+[33mcommit 7dc85f60286fc948c3c61e09d0b54901b707b3bb[m
+Merge: d8ffe56 f129339
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Thu Apr 30 02:49:01 2020 -0500
+
+    Merge pull request #1 from Karan-Katiyar/master
+    
+    shopping cart
+
+[33mcommit f1293390a74eaa6ad514b089fe44343d0158961d[m
+Author: karan katiyar <karankatiyar@karans-MacBook-Pro.local>
+Date:   Thu Apr 30 01:30:56 2020 -0500
+
+    shopping cart
+
+[33mcommit d8ffe563484192c52ca2269af9f57ade5f803caf[m
+Merge: 1bef60a 4969c5b
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Tue Apr 14 04:17:05 2020 -0500
+
+    Merge branch 'master' of https://github.com/pradeepb2505/OnlineEducation
+
+[33mcommit 1bef60a0756d4090e4f2d8ca5e699d6a07c440b8[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Tue Apr 14 04:15:37 2020 -0500
+
+    Added login logic
+
+[33mcommit 4969c5b985eb202cf82d6b1c7f2f4a6d53a464de[m
+Author: pradeepb2505 <pradeep.b2505@gmail.com>
+Date:   Mon Mar 30 15:09:39 2020 -0500
+
+    first commit
