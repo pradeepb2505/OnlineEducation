@@ -7,13 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contentRouter = require('./routes/content');
-<<<<<<< HEAD
+// var myCourses = require('./routes/myCourses');y
 var mainRouter = require("./routes/mainpage");
-var accountRouter = require("./routes/account")
-=======
-var myCourses = require('./routes/myCourses');
-var mainRouter = require("./routes/mainpage");
->>>>>>> master
 
 var config = require('./config');
 var passport = require('passport');
@@ -75,10 +70,6 @@ function auth (req, res, next) {
 }
 
 app.use(auth);
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 app.use('/main', mainRouter);
 app.use('/content', contentRouter);
 app.use('/account', accountRouter);

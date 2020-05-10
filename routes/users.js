@@ -42,11 +42,7 @@ router.post('/signup', (req, res, next) => {
 router.post('/login', passport.authenticate('local'), (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-<<<<<<< HEAD
   res.redirect("/main");
-=======
-  res.redirect("/main")
->>>>>>> master
 });
 
 router.get('/logout', (req, res) => {
