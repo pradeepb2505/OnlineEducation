@@ -7,8 +7,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contentRouter = require('./routes/content');
+<<<<<<< HEAD
 var mainRouter = require("./routes/mainpage");
 var accountRouter = require("./routes/account")
+=======
+var myCourses = require('./routes/myCourses');
+var mainRouter = require("./routes/mainpage");
+>>>>>>> master
 
 var config = require('./config');
 var passport = require('passport');
@@ -56,15 +61,13 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/add-course', indexRouter);
 
 function auth (req, res, next) {
   console.log(req.user);
 
   if (!req.user) {
-    var err = new Error('You are not authenticated!');
-    res.setHeader('WWW-Authenticate', 'Basic');                          
-    err.status = 401;
-    next(err);
+    res.redirect("/")
   }
   else {
         next();
@@ -72,7 +75,10 @@ function auth (req, res, next) {
 }
 
 app.use(auth);
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 app.use('/main', mainRouter);
 app.use('/content', contentRouter);
 app.use('/account', accountRouter);

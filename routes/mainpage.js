@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< HEAD
 const path = require("path");
 const multer = require('multer');
 const upload = multer({dest:__dirname+'\\..\\public\\images\\a'});
@@ -200,4 +201,12 @@ router.get('/checkout', function(req, res){
 
 
 
+=======
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('main', { title: 'Expresss' });
+});
+
+>>>>>>> master
 module.exports = router;
